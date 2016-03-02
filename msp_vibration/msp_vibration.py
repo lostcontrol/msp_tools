@@ -8,7 +8,6 @@ import time
 import sys
 import serial
 import struct
-import matplotlib.pyplot as plt
 import argparse
 from pprint import pprint
 
@@ -176,6 +175,7 @@ class Vibration(object):
         print("rms(total)=%s" % bold.format("%.2f" % AccelData.rms(data)))
 
     def plot(self):
+        import matplotlib.pyplot as plt
         samples = range(0, len(self.__accel.getX()))
         plt.plot(samples, self.__accel.getX())
         plt.plot(samples, self.__accel.getY())
